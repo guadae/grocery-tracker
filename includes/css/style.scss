@@ -1,0 +1,401 @@
+/* $desktop:1200px; // xl
+$laptop:1024px; // lg
+$medium-laptop:992px; // 
+$tablet:768px; // md
+$phone: 480px; // sm */
+
+$xxs: 0;
+$xs: 375px; 
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+
+/* COLORS */ 
+$green:#85B699; 
+$orange:#FF7424;
+$yellow:#FAC41C; 
+
+/* -------------foundational CSS ---------------- */ 
+html {
+    box-sizing: border-box;
+}
+
+* body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+}
+
+.wrapper {
+    width: 100%; 
+}
+
+/* NAVBAR */ 
+
+h2.header1 {
+    color: $green; 
+    font-weight: bold; 
+    padding-left: 30px; 
+
+    }
+
+/* DIV WRAPPER */ 
+
+/* splitting the screen in half */ 
+.split {
+    height: 100%; 
+    width: 50%; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    overflow-x: hidden; 
+    padding-top: 20px; 
+
+    @media (max-width:$lg) {
+        width: 100%; 
+    }
+
+}
+
+/* controlling the left side */ 
+.left {
+ left: 0; 
+    background-color: white; 
+
+    @media (max-width:$lg) {
+        display:none;
+    }
+}
+
+/* controlling the right side */ 
+.right {
+    right: 0; 
+    background-color: #F0F0F0;  
+}
+
+/* wanting the content centered vertically */ 
+.centered {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    text-align: center; 
+}
+
+/* styling the image in the center */ 
+
+.centered img {
+    width: 450px; 
+    border-radius: 50%; 
+}
+
+/* ----------------styling inputs ---------------------*/ 
+
+form {
+    display: block;
+}
+
+input {
+    -moz-border-radius: 12px; 
+    -ms-border-radius: 12px; 
+    -o-border-radius: 12px; 
+    -webkit-border-radius: 12px; 
+    border-radius: 12px; 
+    border-style: none; 
+    margin-bottom: 19px; 
+    padding: 15px 325px 15px 5px; 
+
+    @media (max-width:$lg) {
+        padding-left: 10px;
+        padding-right:400px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 12px;
+        border-style: none;
+        margin-bottom: 19px;
+        display:inline-block;
+}
+
+    @media (max-width:$sm) {
+        padding-top: 15px; 
+        padding-bottom: 15px;  
+        padding-right: 200px; 
+}
+
+}
+
+label {
+    float: left; 
+    position: relative; 
+    margin-bottom: 9px;  
+    display: block; 
+
+    @media (max-width:$lg) {
+        position: relative; 
+        // left: 35px;  
+        float: left;
+    }
+
+
+    @media (max-width:$xs) {
+        position: relative; 
+    }
+
+}
+
+
+button.login-button {
+    background: $green;
+    color: white; 
+
+    padding-top: 8px; 
+    padding-bottom: 8px; 
+  
+    width: 100%; 
+    -moz-border-radius: 12px; 
+    -ms-border-radius: 12px; 
+    -o-border-radius: 12px; 
+    -webkit-border-radius: 12px; 
+    border-radius: 12px; 
+    border-style: none;
+    margin-top: 25px; 
+    text-align: center;
+    font-size: 25px; 
+}
+
+div.create-account {
+    margin-top: 34px; 
+}
+
+/*------------------- DASHBOARD ---------------------*/ 
+
+* {
+    margin: 0; 
+    padding: 0; 
+
+}
+body {
+    // margin: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    display: grid; 
+    height: 80vh;  
+    gap: 55px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: autofill;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr; 
+    grid-template-areas: 
+    // "nav nav nav"
+    "monthly-budget expenses tips"
+    "monthly-budget calendar calendar"
+    "stats calendar calendar"
+    "stats calendar calendar"; 
+    margin: 34;
+
+}
+
+/* HEADER */ 
+
+ul {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0; 
+
+}
+
+.links li {
+    display: inline-block;
+    padding: 0 5px 0 50px;  
+    font-size: 18px;
+}
+
+i {
+    padding: 0 20px 0 0; 
+}
+
+a {
+    color: white; 
+    text-decoration: none; 
+    border: none; 
+}
+
+
+header {
+    background: $green; 
+    display: flex; 
+    justify-content:baseline;
+    // justify-content: space-between;
+    align-items: center;
+    height: 66px; 
+    margin-bottom: 55px; 
+    // box-sizing: border-box; 
+    color: white; 
+    font-size: 24px; 
+    padding: 0 30px 0 30px; 
+    // grid-area: nav; 
+}
+
+/* CONTENTS */ 
+
+
+/* MONTHLY BUDGET */ 
+
+#monthly-budget{
+    border: solid 1px #BABABA;  
+    grid-area: monthly-budget;
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    display: flex; 
+    // justify-content: center;
+}
+
+
+
+/* EXPENSES */ 
+
+#expenses{
+    border: solid 1px #BABABA; 
+    grid-area: expenses; 
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+
+
+}
+
+#tips{
+    border: solid 1px #BABABA; 
+    grid-area: tips; 
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+
+
+}
+
+/* STATS */ 
+
+span.dollar {
+    padding-left: 10px; 
+}
+
+#stats{
+    grid-area: stats; 
+    // border: solid 1px #BABABA; 
+    // box-sizing: border-box;
+    // -moz-border-radius: 11px;
+    // -ms-border-radius: 11px;
+    // -o-border-radius: 11px;
+    // -webkit-border-radius: 11px;
+    // border-radius: 11px;
+    margin: 0; 
+    display: grid;
+    grid-row: 1fr 1fr 1fr;
+    gap: 15px;
+    height: 100%; 
+    grid-template-areas:
+        "stat1"
+        "stat2"
+        "stat3";
+}
+
+.stat1 {
+    grid-area: stat1;
+    background-color: $orange; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    font-size: 24px; 
+
+}
+
+
+.stat2 {
+    grid-area: stat2;
+    background-color: $green; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; 
+
+    font-size: 24px; 
+}
+
+.stat3 {
+    grid-area: stat3;
+    background-color: $yellow; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+ 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    font-size: 24px; 
+}
+
+p.output-right {
+    font-size: 36px; 
+}
+
+
+#calendar{
+    // width: 809px;
+    // height: 544.02px;
+    border: solid 1px #BABABA; 
+    grid-area: calendar; 
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+}
+
+/* headings above boxes */ 
+
+p.headings {
+    // position: relative; 
+    position: absolute; 
+    margin-top: -40px; 
+    font-size: 24px; 
+    font-weight: bold; 
+}
+
