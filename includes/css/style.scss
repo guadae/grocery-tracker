@@ -173,6 +173,8 @@ div.create-account {
 * {
     margin: 0; 
     padding: 0; 
+    box-sizing: border-box
+    outline: none; 
 
 }
 body {
@@ -207,13 +209,12 @@ ul {
 }
 
 .links li {
-    display: inline-block;
-    padding: 0 5px 0 50px;  
+    padding: 20px 0;  
     font-size: 18px;
 }
 
 i {
-    padding: 0 20px 0 0; 
+    padding:  10px 0; 
 }
 
 a {
@@ -223,18 +224,16 @@ a {
 }
 
 
-header {
+.sidebar {
     background: $green; 
+    height: 100%;
+    width: 70px; 
     display: flex; 
-    justify-content:baseline;
-    // justify-content: space-between;
-    align-items: center;
-    height: 66px; 
-    margin-bottom: 55px; 
-    // box-sizing: border-box; 
+    justify-content: center;
+    align-items: flex-start;
     color: white; 
     font-size: 24px; 
-    padding: 0 30px 0 30px; 
+    position:fixed; 
     // grid-area: nav; 
 }
 

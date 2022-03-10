@@ -180,13 +180,12 @@ ul {
 }
 
 .links li {
-  display: inline-block;
-  padding: 0 5px 0 50px;
+  padding: 20px 0;
   font-size: 18px;
 }
 
 i {
-  padding: 0 20px 0 0;
+  padding: 10px 0;
 }
 
 a {
@@ -195,22 +194,21 @@ a {
   border: none;
 }
 
-header {
+.sidebar {
   background: #85B699;
+  height: 100%;
+  width: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: baseline;
-      -ms-flex-pack: baseline;
-          justify-content: baseline;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 66px;
-  margin-bottom: 55px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   color: white;
   font-size: 24px;
-  padding: 0 30px 0 30px;
 }
 
 /* CONTENTS */
