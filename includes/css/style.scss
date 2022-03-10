@@ -15,8 +15,8 @@ $xxl: 1400px;
 
 /* COLORS */ 
 $green:#85B699; 
-$orange:#FF7424;
-$yellow:#FAC41C; 
+$orange:#F69A65;
+$yellow: #C1DFCD; 
 
 /* -------------foundational CSS ---------------- */ 
 html {
@@ -173,16 +173,37 @@ div.create-account {
 * {
     margin: 0; 
     padding: 0; 
-    box-sizing: border-box
-    outline: none; 
-
+    // box-sizing: border-box;
+    // outline: none; 
 }
 body {
     // margin: 0; 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.container {
+/* HEADER */ 
+
+.header h1 {
+    font-size: 24px; 
+    color: $green; 
+}
+
+.header h1.page {
+    color: black; 
+}
+
+.header {
+    display: flex; 
+    justify-content: space-between;
+    height: 70px; 
+    padding: 20px 34px; 
+    margin-left: 70px; 
+}
+
+
+/* DASHBOARD CONTAINER */ 
+
+.dashboard-container {
     display: grid; 
     height: 80vh;  
     gap: 55px;
@@ -191,15 +212,14 @@ body {
     grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr; 
     grid-template-areas: 
     // "nav nav nav"
-    "monthly-budget expenses tips"
-    "monthly-budget calendar calendar"
+    "expenses monthly-budget tips"
+    "expenses calendar calendar"
     "stats calendar calendar"
     "stats calendar calendar"; 
-    margin: 34;
-
+    margin: 10px 34px 34px 104px;
 }
 
-/* HEADER */ 
+/* SIDEBAR */ 
 
 ul {
     list-style-type: none;
@@ -233,48 +253,65 @@ a {
     align-items: flex-start;
     color: white; 
     font-size: 24px; 
-    position:fixed; 
-    // grid-area: nav; 
+    position: fixed; 
+    display: grid;
+    grid-area: sidebar; 
 }
 
 /* CONTENTS */ 
 
 
-/* MONTHLY BUDGET */ 
-
-#monthly-budget{
-    border: solid 1px #BABABA;  
-    grid-area: monthly-budget;
-    box-sizing: border-box;
-    -moz-border-radius: 11px;
-    -ms-border-radius: 11px;
-    -o-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    border-radius: 11px;
-    display: flex; 
-    // justify-content: center;
-}
 
 
 
 /* EXPENSES */ 
 
 #expenses{
-    border: solid 1px #BABABA; 
+    // border: solid 1px #f5f5f5; 
     grid-area: expenses; 
     box-sizing: border-box;
-    -moz-border-radius: 11px;
-    -ms-border-radius: 11px;
-    -o-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    border-radius: 11px;
-
-
+    // -moz-border-radius: 11px;
+    // -ms-border-radius: 11px;
+    // -o-border-radius: 11px;
+    // -webkit-border-radius: 11px;
+    // border-radius: 11px;
 
 }
 
+#expenses table tr {
+    display:flex;
+    justify-content: space-between;
+    // margin: 10px 25px 0 25px; 
+    margin-top: 10px;
+    border-bottom: solid 1px rgb(216, 216, 216); 
+}
+
+#expenses table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 5px; 
+    // font-weight: bold;
+
+}
+
+#expenses table th, 
+#expenses table td {
+    padding: 0 0 15px 5px;
+}
+
+.dollar-expenses {
+    padding-left: 3px; 
+    font-weight: bold;
+}
+
+#expenses table td.date {
+    color: rgb(179, 179, 179); 
+}
+
+/* TIPS */ 
+
 #tips{
-    border: solid 1px #BABABA; 
+    border: solid 1px #f5f5f5; 
     grid-area: tips; 
     box-sizing: border-box;
     -moz-border-radius: 11px;
@@ -285,6 +322,22 @@ a {
 
 
 
+}
+
+
+/* MONTHLY BUDGET */ 
+
+#monthly-budget{
+    border: solid 1px #f5f5f5;  
+    grid-area: monthly-budget;
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+    display: flex; 
+    // justify-content: center;
 }
 
 /* STATS */ 

@@ -16,46 +16,78 @@
 
 
 	<body>
-            <!-- <h4>GROCERY TRACKER</h4> -->
+            
 
         <!-- NAVBAR --> 
 
         <div class="sidebar">
 
-                <nav>
-                    <ul class="links">                  
-                        <li><a href="#">
-                            <i class="fa-solid fa-user"></i>
-                        </a></li>
-                        <li>
-                            <a href="#">
-                                <i class="fa-solid fa-house"></i>
-                        </a></li>
-                        <li><a href="#">
-                            <i class="fa-solid fa-list"></i>
-                        </a></li> 
-                        <li><a href="#">
-                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        </a></li>
-                    </ul>
-                </nav>
+            <nav>
+                <ul class="links">                  
+                    <li><a href="#">
+                        <i class="fa-solid fa-user"></i>
+                    </a></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-solid fa-house"></i>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fa-solid fa-list"></i>
+                    </a></li> 
+                    <li><a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a></li>
+                </ul>
+            </nav>
 
+    </div>
+
+        <!------- DASHBOARD -------->
+
+        <!-- HEADER --> 
+        <div class="header">
+            <h1 class="page">DASHBOARD</h1>
+            <h1>GROCERY TRACKER</h4>
         </div>
 
-        <!-- DASHBOARD -->
+        <!-- MONTHLY EXPENSES --> 
+        <div class="dashboard-container">
 
-        <!-- MONTHLY BUDGET --> 
-        <div class="container">
-
-            <div id="monthly-budget" class="box">
+            <div id="expenses" class="box">
 
                 <p class="headings budget">Your latest expenses</p>
+
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 6, 2022</td>
+                        <td>2.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 4, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 3, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 4, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Dec 29, 2021</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                </table>
             
             </div>
 
-
-        <!-- MONTHLY EXPENSES --> 
-            <div id="expenses" class="box">
+        <!-- BUDGET --> 
+            <div id="monthly-budget" class="box">
                 <p class="headings">Monthly Budget</p>
             </div>
 
