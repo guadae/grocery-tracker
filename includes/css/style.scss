@@ -207,7 +207,7 @@ body {
 
 .dashboard-container {
     display: grid; 
-    height: 80vh;  
+    height: 100vh;  
     gap: 55px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-columns: autofill;
@@ -492,17 +492,22 @@ p.headings {
     -o-border-radius: 11px;
     -webkit-border-radius: 11px;
     border-radius: 11px;
+    display: grid;
 
 }
 
 .calendar {
-    height: max-content;
-    width: max-content;
+
+    // width: fit-content;
+
+    // min-width: 50px;
+    // min-height: 0; 
+    margin: auto;
     border-radius: 30px;
     padding: 20px;
-    position: relative;
-    overflow: hidden;
-    /* transform: scale(1.25); */
+    // position: relative;
+    // overflow: hidden;
+    transform: scale(1.25); 
 }
 
 .calendar-header {
@@ -544,15 +549,15 @@ p.headings {
     align-items: center;
     justify-content: center;
     padding: 5px;
-    position: relative;
+    // position: relative;
     cursor: pointer;
     animation: to-top 1s forwards;
     /* border-radius: 50%; */
 }
 
-.calendar-days div span {
-    position: absolute;
-}
+// .calendar-days div span {
+//     position: absolute;
+// }
 
 .calendar-days div:hover span {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
@@ -584,7 +589,6 @@ p.headings {
 .calendar-days div span:nth-child(4) {
     width: 0;
     height: 2px;
-    background-color: var(--color-txt);
 }
 
 .calendar-days div:hover span:nth-child(2),
@@ -616,8 +620,7 @@ p.headings {
 
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
-    background-color: var(--blue);
-    color: var(--white);
+    // background-color: var(--blue);
     border-radius: 50%;
 }
 
@@ -631,9 +634,9 @@ p.headings {
     cursor: pointer;
 }
 
-.month-picker:hover {
-    background-color: var(--color-hover);
-}
+// .month-picker:hover {
+//     background-color: var(--color-hover);
+// }
 
 .year-picker {
     display: flex;
@@ -650,53 +653,21 @@ p.headings {
     cursor: pointer;
 }
 
-.year-change:hover {
-    background-color: var(--color-hover);
-}
 
-.calendar-footer {
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+// .calendar-footer {
+//     padding: 10px;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+// }
 
-.toggle {
-    display: flex;
-}
-
-.toggle span {
-    margin-right: 10px;
-    color: var(--color-txt);
-}
-
-.dark-mode-switch {
-    position: relative;
-    width: 48px;
-    height: 25px;
-    border-radius: 14px;
-    background-color: var(--bg-second);
-    cursor: pointer;
-}
-
-.dark-mode-switch-ident {
-    width: 21px;
-    height: 21px;
-    border-radius: 50%;
-    background-color: var(--bg-main);
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: left 0.2s ease-in-out;
-}
 
 .month-list {
-    position: absolute;
+    // position: relative;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--bg-main);
     padding: 20px;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
