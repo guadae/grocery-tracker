@@ -1,90 +1,95 @@
-// Months array
-var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-// Days of the Week
-var daysOfWeek = ['S','M','T','W','TH','F','SA'];
-var gridsize = 42; //Total number of date boxes in the grid
+/* KEY */ 
 
-// Default the state to current month and year.
-var state = {
-  month: new Date().getMonth(),
-  year: new Date().getFullYear(),
+// 1 - Calendar 
+// 2 - Pagination 
+// 3 - Popup Modal 
+// 4 - HTTP Requests 
+
+
+/* CALENDAR */ 
+
+let calendar = document.querySelector('.calendar')
+
+const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+isLeapYear = (year) => {
+    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
 }
 
-// The following function builds an array of objects with dates to be displayed in the grid
-function datesForGrid(year, month) {
-  // days array holds all the days to be populated in the grid
-  var dates = [];
-  // Day on which the month starts
-  var firstDay = new Date(year, month).getDay(); 
-  // Total number of days in the month
-  var totalDaysInMonth = new Date(year, month + 1, 0).getDate();
-  // Total number of days in the previous month
-  var totalDaysInPrevMonth = new Date(year, month, 0).getDate();
-  
-  // Days from prev month to show in the grid
-  for(var i = 1; i <= firstDay; i++) {
-    var prevMonthDate = totalDaysInPrevMonth - firstDay + i;
-    var key = new Date(state.year, state.month -1, prevMonthDate).toLocaleString();    
-    dates.push({key: key, date: prevMonthDate, monthClass:'prev'});
-  }
-  // Days of the current month to show in the grid
-  var today = new Date();
-  for(var i = 1; i <= totalDaysInMonth; i++) {
-    var key = new Date(state.year, state.month, i).toLocaleString();
-    if(i === today.getDate() && state.month === today.getMonth() && state.year === today.getFullYear()) {
-      dates.push({key: key, date: i, monthClass: 'current', todayClass: 'today'})
-    } else{ 
-      dates.push({key: key, date: i, monthClass: 'current'});
+getFebDays = (year) => {
+    return isLeapYear(year) ? 29 : 28
+}
+
+generateCalendar = (month, year) => {
+
+    let calendar_days = calendar.querySelector('.calendar-days')
+    let calendar_header_year = calendar.querySelector('#year')
+
+    let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    calendar_days.innerHTML = ''
+
+    let currDate = new Date()
+    if (!month) month = currDate.getMonth()
+    if (!year) year = currDate.getFullYear()
+
+    let curr_month = `${month_names[month]}`
+    month_picker.innerHTML = curr_month
+    calendar_header_year.innerHTML = year
+
+    // get first day of month
+    
+    let first_day = new Date(year, month, 1)
+
+    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+        let day = document.createElement('div')
+        if (i >= first_day.getDay()) {
+            day.classList.add('calendar-day-hover')
+            day.innerHTML = i - first_day.getDay() + 1
+            day.innerHTML += `<span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>`
+            if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
+                day.classList.add('curr-date')
+            }
+        }
+        calendar_days.appendChild(day)
     }
-  }
-  
-  // If there is space left over in the grid, then show the dates for the next month
-  if(dates.length < gridsize) {
-    var count = gridsize - dates.length;
-    for(var i = 1; i <= count; i++) {
-      var key = new Date(state.year, state.month + 1, i).toLocaleString();
-      dates.push({key: key, date: i, monthClass:'next'});
+}
+
+let month_list = calendar.querySelector('.month-list')
+
+month_names.forEach((e, index) => {
+    let month = document.createElement('div')
+    month.innerHTML = `<div data-month="${index}">${e}</div>`
+    month.querySelector('div').onclick = () => {
+        month_list.classList.remove('show')
+        curr_month.value = index
+        generateCalendar(index, curr_year.value)
     }
-  }
-  return dates;
+    month_list.appendChild(month)
+})
+
+let month_picker = calendar.querySelector('#month-picker')
+
+month_picker.onclick = () => {
+    month_list.classList.add('show')
 }
 
-function render() {  
-  var calendarApp = document.querySelector('[data-app=calendar-app]');
-  // Building the calendar app HTML from the data
-  calendarApp.innerHTML = `
-      <div class="calendar-nav">
-        <button id="prev-month">Previous</button>
-        <h2>${months[state.month]} ${state.year}</h2>
-        <button id="next-month">Next</button>
-      </div>
-      <div class='calendar-grid'>
-        ${ daysOfWeek.map(day => `<div>${day}</div>` ).join('') }
-        ${ datesForGrid(state.year, state.month).map(date => `<div id="${date.key}" class="${date.monthClass} ${date.todayClass ? date.todayClass : ''}">${date.date}</div>`).join('') }
-      </div>
-  `;
+let currDate = new Date()
+
+let curr_month = {value: currDate.getMonth()}
+let curr_year = {value: currDate.getFullYear()}
+
+generateCalendar(curr_month.value, curr_year.value)
+
+document.querySelector('#prev-year').onclick = () => {
+    --curr_year.value
+    generateCalendar(curr_month.value, curr_year.value)
 }
 
-function showCalendar(prevNextIndicator) {
-  var date = new Date(state.year, state.month + prevNextIndicator);
-  //Update the state
-  state.year = date.getFullYear();
-  state.month = date.getMonth();  
-  render();
+document.querySelector('#next-year').onclick = () => {
+    ++curr_year.value
+    generateCalendar(curr_month.value, curr_year.value)
 }
-
-// Show the current month by default
-showCalendar(0);
-
-document.addEventListener('click', function(ev) {
-  if(ev.target.id === 'prev-month') {
-    showCalendar(-1);
-  }
-  if(ev.target.id === 'next-month') {
-    showCalendar(1);
-  }
-});
-
-
-
-Resources

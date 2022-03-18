@@ -23,6 +23,7 @@ $dark-green: #186B3A;
 /* -------------foundational CSS ---------------- */ 
 html {
     box-sizing: border-box;
+    margin: 0;
 }
 
 * body {
@@ -196,32 +197,31 @@ body {
 }
 
 .header {
+    grid-area: header; 
     display: flex; 
     justify-content: space-between;
-    height: 70px; 
-    padding: 20px 34px; 
-    margin-left: 70px; 
-    position: absolute; 
+    padding: 20px 0 20px 0; 
 }
 
 
 /* DASHBOARD CONTAINER */ 
 
 .dashboard-container {
+    position: fixed;
     display: grid; 
-    height: 100vh;  
+    height: 96vh;  
     gap: 55px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: autofill;
-    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr; 
+    grid-template-rows: autofill;
+    grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.25fr; 
     grid-template-areas: 
-    // "nav nav nav"
+    "header header header"
     "calendar monthly-budget tips"
-    "calendar expenses expenses"
-    "stats expenses expenses"
-    "stats expenses expenses"; 
+    "calendar lists lists"
+    "stats lists lists"
+    "stats lists lists"; 
 
-    margin: 10px 34px 34px 104px;
+    margin: 0px 40px 0px 105px;
 }
 
 /* SIDEBAR */ 
@@ -272,46 +272,33 @@ a {
 
 /* ---- CALENDAR -----*/ 
 
-
-#calendar{
-    // width: 809px;
-    // height: 544.02px;
-    border: solid 1px #BABABA; 
-    grid-area: calendar; 
-    // box-sizing: border-box;
-    -moz-border-radius: 11px;
-    -ms-border-radius: 11px;
-    -o-border-radius: 11px;
-    -webkit-border-radius: 11px;
-    border-radius: 11px;
-    display: grid;
-
-}
-
 .calendar {
-    height: max-content;
-    width: max-content;
-    background-color: var(--bg-main);
+    grid-area: calendar;
+    display: grid;
+    // height: 100%;
+    // width: 100%;
+    height: fit-content;
+    width: fit-content; 
     border-radius: 30px;
-    padding: 20px;
+    // padding: 20px;
     position: relative;
-    overflow: hidden;
-    /* transform: scale(1.25); */
+    // overflow: hidden;
+    transform: scale(1);
+    padding: 10px; 
 }
 
 .calendar-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 25px;
+    // align-items: center;
+    font-size: 24px;
     font-weight: 600;
-    color: var(--color-txt);
-    padding: 10px;
+
 }
 
-.calendar-body {
-    padding: 10px;
-}
+// .calendar-body {
+//     padding: 10px;
+// }
 
 .calendar-week-day {
     height: 50px;
@@ -329,21 +316,20 @@ a {
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    // gap: 2px;
     color: var(--color-txt);
 }
 
 .calendar-days div {
     width: 50px;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
     position: relative;
     cursor: pointer;
     animation: to-top 1s forwards;
-    /* border-radius: 50%; */
+    border-radius: 50%;
 }
 
 .calendar-days div span {
@@ -425,10 +411,11 @@ a {
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
+    background-color: white; 
 }
 
 .month-picker:hover {
-    background-color: var(--color-hover);
+    background-color: white; 
 }
 
 .year-picker {
@@ -548,7 +535,7 @@ a {
 /* MONTHLY BUDGET */ 
 
 #monthly-budget{
-    border: solid 1px #f5f5f5;  
+    border: solid 1px $dark-green;  
     grid-area: monthly-budget;
     box-sizing: border-box;
     -moz-border-radius: 11px;
@@ -592,16 +579,22 @@ a {
 
 #stats{
     grid-area: stats; 
+
+}
+
+.stat-container {
+
     margin: 0; 
     display: grid;
     grid-row: 1fr 1fr 1fr;
     gap: 15px;
     height: 100%; 
     grid-template-areas:
-        "stat1"
-        "stat2"
-        "stat3";
+    "stat1"
+    "stat2"
+    "stat3";
 }
+    
 
 .stat1 {
     grid-area: stat1;
@@ -678,9 +671,9 @@ p.headings {
 
   /* EXPENSES */ 
 
-#expenses{
+#lists{
     // border: solid 1px #f5f5f5; 
-    grid-area: expenses; 
+    grid-area: lists; 
     box-sizing: border-box;
     // -moz-border-radius: 11px;
     // -ms-border-radius: 11px;
@@ -690,7 +683,7 @@ p.headings {
 
 }
 
-#expenses table tr {
+#lists table tr {
     display:flex;
     justify-content: space-between;
     // margin: 10px 25px 0 25px; 
@@ -698,7 +691,7 @@ p.headings {
     border-bottom: solid 1px rgb(216, 216, 216); 
 }
 
-#expenses table {
+#lists table {
     width: 100%; 
     border-collapse: collapse;
     margin: 5px; 
@@ -706,8 +699,8 @@ p.headings {
 
 }
 
-#expenses table th, 
-#expenses table td {
+#lists table th, 
+#lists table td {
     padding: 0 0 15px 5px;
 }
 
@@ -716,7 +709,7 @@ p.headings {
     font-weight: bold;
 }
 
-#expenses table td.date {
+#lists table td.date {
     // color: rgb(179, 179, 179); 
     color: $green;
 }

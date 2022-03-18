@@ -8,6 +8,7 @@ $phone: 480px; // sm */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: 0;
 }
 
 * body {
@@ -169,32 +170,34 @@ body {
 }
 
 .header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 70px;
-  padding: 20px 34px;
-  margin-left: 70px;
-  position: absolute;
+  padding: 20px 0 20px 0;
 }
 
 /* DASHBOARD CONTAINER */
 .dashboard-container {
+  position: fixed;
   display: -ms-grid;
   display: grid;
-  height: 100vh;
+  height: 96vh;
   gap: 55px;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
-  -ms-grid-columns: autofill;
-      grid-template-columns: autofill;
-  -ms-grid-rows: 0.25fr 0.25fr 0.25fr 0.25fr;
-      grid-template-rows: 0.25fr 0.25fr 0.25fr 0.25fr;
-      grid-template-areas: "calendar monthly-budget tips" "calendar expenses expenses" "stats expenses expenses" "stats expenses expenses";
-  margin: 10px 34px 34px 104px;
+  -ms-grid-rows: autofill;
+      grid-template-rows: autofill;
+  -ms-grid-rows: 70px 0.25fr 0.25fr 0.25fr 0.25fr;
+      grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.25fr;
+      grid-template-areas: "header header header" "calendar monthly-budget tips" "calendar lists lists" "stats lists lists" "stats lists lists";
+  margin: 0px 40px 0px 105px;
 }
 
 /* SIDEBAR */
@@ -244,30 +247,24 @@ a {
 
 /*------------ CONTENTS ----------------*/
 /* ---- CALENDAR -----*/
-#calendar {
-  border: solid 1px #BABABA;
-  -ms-grid-row: 1;
+.calendar {
+  -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: calendar;
-  border-radius: 11px;
   display: -ms-grid;
   display: grid;
-}
-
-.calendar {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  background-color: var(--bg-main);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   border-radius: 30px;
-  padding: 20px;
   position: relative;
-  overflow: hidden;
-  /* transform: scale(1.25); */
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  padding: 10px;
 }
 
 .calendar-header {
@@ -277,17 +274,8 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 600;
-  color: var(--color-txt);
-  padding: 10px;
-}
-
-.calendar-body {
-  padding: 10px;
 }
 
 .calendar-week-day {
@@ -311,13 +299,12 @@ a {
   display: grid;
   -ms-grid-columns: (1fr)[7];
       grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
   color: var(--color-txt);
 }
 
 .calendar-days div {
   width: 50px;
-  height: 50px;
+  height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -327,12 +314,11 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5px;
   position: relative;
   cursor: pointer;
   -webkit-animation: to-top 1s forwards;
           animation: to-top 1s forwards;
-  /* border-radius: 50%; */
+  border-radius: 50%;
 }
 
 .calendar-days div span {
@@ -418,10 +404,11 @@ a {
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: white;
 }
 
 .month-picker:hover {
-  background-color: var(--color-hover);
+  background-color: white;
 }
 
 .year-picker {
@@ -536,7 +523,7 @@ a {
 
 /* WELCOME */
 #welcome {
-  -ms-grid-row: 1;
+  -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: tips;
   -webkit-box-sizing: border-box;
@@ -571,8 +558,8 @@ a {
 
 /* MONTHLY BUDGET */
 #monthly-budget {
-  border: solid 1px #f5f5f5;
-  -ms-grid-row: 1;
+  border: solid 1px #186B3A;
+  -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: monthly-budget;
   -webkit-box-sizing: border-box;
@@ -609,10 +596,13 @@ a {
 }
 
 #stats {
-  -ms-grid-row: 3;
+  -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: stats;
+}
+
+.stat-container {
   margin: 0;
   display: -ms-grid;
   display: grid;
@@ -695,17 +685,17 @@ p.headings {
 }
 
 /* EXPENSES */
-#expenses {
-  -ms-grid-row: 2;
+#lists {
+  -ms-grid-row: 3;
   -ms-grid-row-span: 3;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
-  grid-area: expenses;
+  grid-area: lists;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-#expenses table tr {
+#lists table tr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -716,14 +706,14 @@ p.headings {
   border-bottom: solid 1px #d8d8d8;
 }
 
-#expenses table {
+#lists table {
   width: 100%;
   border-collapse: collapse;
   margin: 5px;
 }
 
-#expenses table th,
-#expenses table td {
+#lists table th,
+#lists table td {
   padding: 0 0 15px 5px;
 }
 
@@ -732,7 +722,7 @@ p.headings {
   font-weight: bold;
 }
 
-#expenses table td.date {
+#lists table td.date {
   color: #489668;
 }
 /*# sourceMappingURL=style.css.map */
