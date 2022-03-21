@@ -472,8 +472,8 @@ a {
           transform: scale(1);
   visibility: visible;
   pointer-events: visible;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .month-list > div {

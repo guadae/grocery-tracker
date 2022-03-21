@@ -8,10 +8,13 @@
 
 /* CALENDAR */ 
 
+
 let calendar = document.querySelector('.calendar')
 
+// declaring month names 
 const month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+// leap year 
 isLeapYear = (year) => {
     return (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 ===0)
 }
@@ -19,6 +22,8 @@ isLeapYear = (year) => {
 getFebDays = (year) => {
     return isLeapYear(year) ? 29 : 28
 }
+
+// generating the calendar
 
 generateCalendar = (month, year) => {
 
@@ -71,11 +76,34 @@ month_names.forEach((e, index) => {
     month_list.appendChild(month)
 })
 
+/* This is the onclick that shows the months */ 
+
 let month_picker = calendar.querySelector('#month-picker')
+// /* MY EDIT */ 
+// let calendar_days = calendar.querySelector('.calendar-days') // create element 
 
 month_picker.onclick = () => {
+    // when the month picker is clicked, calendar days are white
     month_list.classList.add('show')
+    document.querySelector('.calendar-body').style.color = "white";
+
+    // when a 'div' month has been clicked, days show black
+    month.querySelector('div').onclick = () => { 
+        curr_month.value = index
+        generateCalendar(index, curr_year.value)
+    }
+
+    month_list.appendChild(month)
 }
+
+
+
+
+
+
+
+
+
 
 let currDate = new Date()
 
