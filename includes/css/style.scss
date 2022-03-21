@@ -1,0 +1,724 @@
+/* $desktop:1200px; // xl
+$laptop:1024px; // lg
+$medium-laptop:992px; // 
+$tablet:768px; // md
+$phone: 480px; // sm */
+
+$xxs: 0;
+$xs: 375px; 
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+
+/* COLORS */ 
+$light-green:#65D292; 
+$green: #489668;
+$dark-green: #186B3A; 
+
+/* -------------foundational CSS ---------------- */ 
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+* body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    margin: 0; 
+}
+
+.wrapper {
+    width: 100%; 
+}
+
+/* NAVBAR */ 
+
+h2.header1 {
+    color: $green; 
+    font-weight: bold; 
+    padding-left: 30px; 
+
+    }
+
+/* DIV WRAPPER */ 
+
+/* splitting the screen in half */ 
+.split {
+    height: 100%; 
+    width: 50%; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    overflow-x: hidden; 
+    padding-top: 20px; 
+
+    @media (max-width:$lg) {
+        width: 100%; 
+    }
+
+}
+
+/* controlling the left side */ 
+.left {
+ left: 0; 
+    background-color: white; 
+
+    @media (max-width:$lg) {
+        display:none;
+    }
+}
+
+/* controlling the right side */ 
+.right {
+    right: 0; 
+    background-color: #F0F0F0;  
+}
+
+/* wanting the content centered vertically */ 
+.centered {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    text-align: center; 
+}
+
+/* styling the image in the center */ 
+
+.centered img {
+    width: 450px; 
+    border-radius: 50%; 
+}
+
+/* ----------------styling inputs ---------------------*/ 
+
+form {
+    display: block;
+}
+
+input {
+    -moz-border-radius: 12px; 
+    -ms-border-radius: 12px; 
+    -o-border-radius: 12px; 
+    -webkit-border-radius: 12px; 
+    border-radius: 12px; 
+    border-style: none; 
+    margin-bottom: 19px; 
+    padding: 15px 325px 15px 5px; 
+
+    @media (max-width:$lg) {
+        padding-left: 10px;
+        padding-right:400px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 12px;
+        border-style: none;
+        margin-bottom: 19px;
+        display:inline-block;
+}
+
+    @media (max-width:$sm) {
+        padding-top: 15px; 
+        padding-bottom: 15px;  
+        padding-right: 200px; 
+}
+
+}
+
+label {
+    float: left; 
+    position: relative; 
+    margin-bottom: 9px;  
+    display: block; 
+
+    @media (max-width:$lg) {
+        position: relative; 
+        // left: 35px;  
+        float: left;
+    }
+
+
+    @media (max-width:$xs) {
+        position: relative; 
+    }
+
+}
+
+
+button.login-button {
+    background: $green;
+    color: white; 
+
+    padding-top: 8px; 
+    padding-bottom: 8px; 
+  
+    width: 100%; 
+    -moz-border-radius: 12px; 
+    -ms-border-radius: 12px; 
+    -o-border-radius: 12px; 
+    -webkit-border-radius: 12px; 
+    border-radius: 12px; 
+    border-style: none;
+    margin-top: 25px; 
+    text-align: center;
+    font-size: 25px; 
+}
+
+div.create-account {
+    margin-top: 34px; 
+}
+
+/*------------------- DASHBOARD ---------------------*/ 
+
+* {
+    margin: 0; 
+    padding: 0; 
+    height: fit-content; 
+    overflow: hidden;
+    // outline: none; 
+}
+body {
+    // margin: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* HEADER */ 
+
+.header h1 {
+    font-size: 24px; 
+    color: $green; 
+}
+
+.header h1.page {
+    color: black; 
+}
+
+.header {
+    grid-area: header; 
+    display: flex; 
+    justify-content: space-between;
+    padding: 20px 0 20px 0;  
+}
+
+
+/* DASHBOARD CONTAINER */ 
+
+.dashboard-container{
+    display: grid; 
+    // height: 95vh;  
+    min-height: 100%; 
+    gap: 55px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: autofill;
+    grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.25fr; 
+    grid-template-areas: 
+    "header header header"
+    "calendar monthly-budget tips"
+    "calendar lists lists"
+    "stats lists lists"
+    "stats lists lists"; 
+
+    margin: 0px 40px 0px 105px;
+}
+
+
+/* SIDEBAR */ 
+
+ul {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0; 
+
+}
+
+.links li {
+    padding: 20px 0;  
+    font-size: 18px;
+}
+
+i {
+    padding:  10px 0; 
+}
+
+a {
+    color: white; 
+    text-decoration: none; 
+    border: none; 
+}
+
+.create-account a {
+    color: rgb(68, 133, 218); 
+}
+
+
+.sidebar {
+    background: $green; 
+    height: 100%;
+    width: 70px; 
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start;
+    color: white; 
+    font-size: 24px; 
+    position: fixed; 
+    margin: 0; 
+    // display: grid;
+    // grid-area: sidebar; 
+}
+
+/*------------ CONTENTS ----------------*/ 
+
+/* ---- CALENDAR -----*/ 
+
+:root {
+
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #edf0f5;
+    --light-text: #151426;
+
+    --green: #489668;
+    --white: #fff;
+
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.calendar {
+    grid-area: calendar;
+    display: grid;
+    // height: 100%;
+    // width: 100%;
+    height: fit-content;
+    width: fit-content; 
+    // border-radius: 30px;
+    // padding: 20px;
+    position: relative;
+    // overflow: hidden;
+    transform: scale(1);
+    padding: 10px; 
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+// .calendar-body {
+//     padding: 10px;
+// }
+
+.calendar-week-day {
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+}
+
+.calendar-week-day div {
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    // gap: 2px;
+    color: var(--color-txt);
+}
+
+.calendar-days div {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+    border-radius: 50%;
+}
+
+.calendar-days div span {
+    position: absolute;
+}
+
+.calendar-days div:hover span {
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.calendar-days div span:nth-child(1),
+.calendar-days div span:nth-child(3) {
+    width: 2px;
+    height: 0;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(1),
+.calendar-days div:hover span:nth-child(3) {
+    height: 100%;
+}
+
+.calendar-days div span:nth-child(1) {
+    bottom: 0;
+    left: 0;
+}
+
+.calendar-days div span:nth-child(3) {
+    top: 0;
+    right: 0;
+}
+
+.calendar-days div span:nth-child(2),
+.calendar-days div span:nth-child(4) {
+    width: 0;
+    height: 2px;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(2),
+.calendar-days div:hover span:nth-child(4) {
+    width: 100%;
+}
+
+.calendar-days div span:nth-child(2) {
+    top: 0;
+    left: 0;
+}
+
+.calendar-days div span:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+.calendar-days div:hover span:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.calendar-days div:hover span:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.calendar-days div:hover span:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+    background-color: var(--green);
+    color: var(--white);
+    // border-radius: 50%;
+}
+
+.calendar-days div.curr-date span {
+    display: none;
+}
+
+.month-picker {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white; 
+}
+
+.month-picker:hover {
+    background-color: white; 
+}
+
+.year-picker {
+    display: flex;
+    align-items: center;
+}
+
+.year-change {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.year-change:hover {
+    background-color: var(--color-hover);
+}
+
+.calendar-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+.month-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fdfdfd;
+    padding: 20px;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    display: grid;
+    transform: scale(1.5);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.month-list.show {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.1s ease-in-out;
+}
+
+.month-list > div {
+    display: grid;
+    place-items: center;
+}
+
+.month-list > div > div {
+    width: 100%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--color-txt);
+}
+
+.month-list > div > div:hover {
+    background-color: $green;
+}
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* WELCOME */ 
+
+#welcome{
+    // border: solid 1px #f5f5f5; 
+    grid-area: tips; 
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+}
+
+#welcome .welcome-container {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    font-size: 24px;
+}
+
+
+#welcome .quote {
+    font-size: 18px; 
+    color: grey; 
+
+}
+
+/* MONTHLY BUDGET */ 
+
+#monthly-budget{
+    border: solid 1px $dark-green;  
+    grid-area: monthly-budget;
+    box-sizing: border-box;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+}
+
+#monthly-budget div {
+    font-size: 24px; 
+    display: inline; 
+    display: inline-block;
+    padding: 10px;
+}
+
+#monthly-budget .monthly-budget-container {
+    font-size: 12px;
+    margin: 10px; 
+    color: grey;
+
+}
+
+#monthly-budget .monthly-budget-container #spent, span.dollar {
+    font-size: 48px;
+    color: $dark-green;
+}
+
+#monthly-budget .monthly-budget-container .total {
+    top: -3px; 
+}
+
+
+/* STATS */ 
+
+.info span.dollar {
+    padding-left: 10px; 
+    color: white; 
+}
+
+#stats{
+    grid-area: stats; 
+
+}
+
+.stat-container {
+
+    margin: 0; 
+    display: grid;
+    grid-row: 1fr 1fr 1fr;
+    gap: 15px;
+    height: 100%; 
+    grid-template-areas:
+    "stat1"
+    "stat2"
+    "stat3";
+}
+    
+
+.stat1 {
+    grid-area: stat1;
+    background-color: $light-green; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    font-size: 24px; 
+
+}
+
+
+.stat2 {
+    grid-area: stat2;
+    background-color: $green; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; 
+
+    font-size: 24px; 
+}
+
+.stat3 {
+    grid-area: stat3;
+    background-color: $dark-green; 
+    color: white; 
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    border-radius: 11px;
+ 
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    font-size: 24px; 
+}
+
+p.output-right {
+    font-size: 36px; 
+}
+
+/* headings above boxes */ 
+
+p.headings {
+    // position: relative; 
+    position: absolute; 
+    margin-top: -40px; 
+    font-size: 24px; 
+    font-weight: bold; 
+} 
+
+
+
+
+  /* EXPENSES */ 
+
+#lists{
+    // border: solid 1px #f5f5f5; 
+    grid-area: lists; 
+    box-sizing: border-box;
+    // -moz-border-radius: 11px;
+    // -ms-border-radius: 11px;
+    // -o-border-radius: 11px;
+    // -webkit-border-radius: 11px;
+    // border-radius: 11px;
+
+}
+
+#lists table tr {
+    display:flex;
+    justify-content: space-between;
+    // margin: 10px 25px 0 25px; 
+    margin-top: 10px;
+    border-bottom: solid 1px rgb(216, 216, 216); 
+}
+
+#lists table {
+    width: 100%; 
+    border-collapse: collapse;
+    margin: 5px; 
+    // font-weight: bold;
+
+}
+
+#lists table th, 
+#lists table td {
+    padding: 0 0 15px 5px;
+}
+
+.dollar-expenses {
+    padding-left: 3px; 
+    font-weight: bold;
+}
+
+#lists table td.date {
+    // color: rgb(179, 179, 179); 
+    color: $green;
+}
