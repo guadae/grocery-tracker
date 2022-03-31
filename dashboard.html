@@ -20,23 +20,31 @@
 
         <!-- NAVBAR --> 
 
-        <div class="sidebar">
+        <div class="navbar">
 
             <nav>
+
+                <button type="button" class="btn-hamburger" data-action="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul class="links">                  
-                    <li><a href="#">
-                        <i class="fa-solid fa-user"></i>
-                    </a></li>
-                    <li>
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-user fa-2x"></i>
+                    </a></button></li>
+                    <li><button>
                         <a href="#">
-                            <i class="fa-solid fa-house"></i>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="fa-solid fa-list"></i>
-                    </a></li> 
-                    <li><a href="#">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </a></li>
+                            <i class="fa-solid fa-house fa-2x"></i>
+                    </a></button></li>
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-list fa-2x"></i>
+                    </a></button></li> 
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+                    </a></button></li>
                 </ul>
             </nav>
 
@@ -50,13 +58,14 @@
         <!-- HEADER --> 
         <div class="header">
             <h1 class="page">DASHBOARD</h1>
-            <h1>GROCERY TRACKER</h4>
+            <h1>GROCERY TRACKER</h1>
         </div>
 
         <!-- CALENDAR --> 
-
+    <div class="calendar-container">
+        <p class="headings">Calendar</p>
         <div class="calendar">
-            <p class="headings">Calendar</p>
+            
             <div class="calendar-header">
                 <span class="month-picker" id="month-picker">February</span>
                 <div class="year-picker">
@@ -84,7 +93,7 @@
  
             <div class="month-list"></div>
         </div>
-
+    </div>
         <!-- LATEST STATS --> 
 
         <div id="stats" class="box">
@@ -182,6 +191,10 @@
                         <td>30.00 <span class="dollar-expenses">$</span></td>
                     </tr>
                 </table>
+
+                <div class="pagination-footer">
+
+                </div>
             
             </div>
 
@@ -189,7 +202,13 @@
     </body>
 
     <!-- Local JS installs --> 
+
+    <!-- jQuery CDN --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JS --> 
     <script type="text/javascript" src="includes/js/script.js"></script>
+   
 
 </html>
 

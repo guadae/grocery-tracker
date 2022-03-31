@@ -153,6 +153,10 @@ div.create-account {
 * {
   margin: 0;
   padding: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
 }
 
 body {
@@ -185,10 +189,9 @@ body {
 
 /* DASHBOARD CONTAINER */
 .dashboard-container {
-  position: fixed;
   display: -ms-grid;
   display: grid;
-  height: 96vh;
+  min-height: 100%;
   gap: 55px;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
@@ -216,6 +219,10 @@ i {
   padding: 10px 0;
 }
 
+i.fa-solid {
+  size: 15px;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -226,7 +233,7 @@ a {
   color: #4485da;
 }
 
-.sidebar {
+.navbar {
   background: #489668;
   height: 100%;
   width: 70px;
@@ -245,8 +252,268 @@ a {
   margin: 0;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/* ------------------- RESPONSIVE DESIGN ------------------*/
+@media screen and (max-width: 992px) {
+  .dashboard-container {
+    display: -ms-grid;
+    display: grid;
+    height: 95vh;
+    gap: 55px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: autofill;
+        grid-template-rows: autofill;
+    -ms-grid-rows: 70px 0.25fr 0.25fr 0.25fr 0.50fr;
+        grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.50fr;
+        grid-template-areas: "header header" "monthly-budget stats" "tips stats" "calendar lists" "calendar lists";
+    margin: 0px 40px 0px 105px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    display: -ms-grid;
+    display: grid;
+    height: 100vh;
+    gap: 55px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 70px 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 70px 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "header" "monthly-budget" "stats" "tips" "lists" "calendar";
+    margin: 0;
+    padding: 0 10px;
+  }
+  * {
+    overflow: visible;
+  }
+  * html body {
+    overflow: visible;
+    font-size: 16px;
+  }
+  .navbar {
+    position: static;
+    background-color: #489668;
+    height: 400px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    color: white;
+    font-size: 16px;
+    margin: auto;
+  }
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #489668;
+  }
+  info .stat1 .stat2 .stat3 {
+    border-radius: 0px;
+  }
+  .calendar {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: calendar;
+    display: -ms-grid;
+    display: grid;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .dashboard-container {
+    display: -ms-grid;
+    display: grid;
+    height: 100vh;
+    gap: 55px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "header" "monthly-budget" "stats" "tips" "lists" "calendar";
+    margin: 0;
+    padding: 0 10px;
+  }
+  * html body {
+    overflow: visible;
+    font-size: 16px;
+  }
+  .navbar, ul {
+    position: relative;
+    background: #489668;
+    height: 70px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    color: white;
+    font-size: 16px;
+    margin: auto;
+  }
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header h1 {
+    display: inline-block;
+  }
+  info .stat1 .stat2 .stat3 {
+    border-radius: 0px;
+  }
+  .calendar {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: calendar;
+    display: -ms-grid;
+    display: grid;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .dashboard-container {
+    display: -ms-grid;
+    display: grid;
+    height: 100vh;
+    width: 100vh;
+    gap: 55px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: "header" "monthly-budget" "stats" "tips" "lists" "calendar";
+    margin: 0;
+    padding: 0 10px;
+  }
+  * html body {
+    overflow: visible;
+    font-size: 16px;
+  }
+  .navbar, ul {
+    position: relative;
+    background: #489668;
+    height: 70px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    color: white;
+    font-size: 16px;
+    margin: auto;
+  }
+  .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header h1 {
+    display: inline-block;
+  }
+  info .stat1 .stat2 .stat3 {
+    border-radius: 0px;
+  }
+  .calendar {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: calendar;
+    display: -ms-grid;
+    display: grid;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    padding: 10px;
+  }
+}
+
 /*------------ CONTENTS ----------------*/
 /* ---- CALENDAR -----*/
+:root {
+  --light-body: #f3f8fe;
+  --light-main: #fdfdfd;
+  --light-second: #c3c2c8;
+  --light-hover: #edf0f5;
+  --light-text: #151426;
+  --green: #489668;
+  --white: #fff;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .calendar {
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
@@ -260,8 +527,8 @@ a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  border-radius: 30px;
   position: relative;
+  overflow: hidden;
   -webkit-transform: scale(1);
           transform: scale(1);
   padding: 10px;
@@ -391,9 +658,8 @@ a {
 
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
-  background-color: var(--blue);
+  background-color: var(--green);
   color: var(--white);
-  border-radius: 50%;
 }
 
 .calendar-days div.curr-date span {
@@ -454,7 +720,7 @@ a {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: var(--bg-main);
+  background-color: #fdfdfd;
   padding: 20px;
   -ms-grid-columns: (auto)[3];
       grid-template-columns: repeat(3, auto);
@@ -492,7 +758,7 @@ a {
 }
 
 .month-list > div > div:hover {
-  background-color: var(--color-hover);
+  background-color: #489668;
 }
 
 @-webkit-keyframes to-top {
@@ -541,14 +807,6 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-size: 24px;
-}
-
-#welcome img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 130px;
-  border-radius: 50%;
-  padding: 15px;
 }
 
 #welcome .quote {
@@ -682,6 +940,15 @@ p.headings {
   margin-top: -40px;
   font-size: 24px;
   font-weight: bold;
+}
+
+#monthly-budget p.headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 /* EXPENSES */

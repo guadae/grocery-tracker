@@ -79,31 +79,10 @@ month_names.forEach((e, index) => {
 /* This is the onclick that shows the months */ 
 
 let month_picker = calendar.querySelector('#month-picker')
-// /* MY EDIT */ 
-// let calendar_days = calendar.querySelector('.calendar-days') // create element 
 
 month_picker.onclick = () => {
-    // when the month picker is clicked, calendar days are white
     month_list.classList.add('show')
-    document.querySelector('.calendar-body').style.color = "white";
-
-    // when a 'div' month has been clicked, days show black
-    month.querySelector('div').onclick = () => { 
-        curr_month.value = index
-        generateCalendar(index, curr_year.value)
-    }
-
-    month_list.appendChild(month)
 }
-
-
-
-
-
-
-
-
-
 
 let currDate = new Date()
 
@@ -121,3 +100,10 @@ document.querySelector('#next-year').onclick = () => {
     ++curr_year.value
     generateCalendar(curr_month.value, curr_year.value)
 }
+
+// other JS --- jQuery 
+// $(function() {
+//     alert("I see you've reloaded");
+// });
+
+/* ----  NAVBAR  -----*/ 
