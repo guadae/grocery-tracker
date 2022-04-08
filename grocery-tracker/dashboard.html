@@ -1,0 +1,211 @@
+
+<!DOCTYPE html> 
+
+<html lang="en">
+    <head>
+        <title>Grocery Tracker</title>
+
+				<!-- Required meta tags -->
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+        <!-- local CSS installs --> 
+        <link rel="stylesheet" href="includes/css/styles.css" type="text/css">
+
+        <!-- icons --> 
+        <script src="https://kit.fontawesome.com/cdf37576b9.js" crossorigin="anonymous"></script>
+        
+    </head>
+
+
+	<body>
+            
+
+        <!-- NAVBAR --> 
+
+        <div class="navbar">
+
+            <nav>
+
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
+                <ul class="links">                  
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-user fa-2x"></i>
+                    </a></button></li>
+                    <li><button>
+                        <a href="#">
+                            <i class="fa-solid fa-house fa-2x"></i>
+                    </a></button></li>
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-list fa-2x"></i>
+                    </a></button></li> 
+                    <li><button><a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+                    </a></button></li>
+                </ul>
+            </nav>
+
+            <h1 id="nav-head">Dashboard</h1>
+
+    </div>
+
+    
+
+        <!------- DASHBOARD -------->
+        <div class="dashboard-container">
+
+                            <!-- HEADER --> 
+                <div class="header">
+                    <h1 class="page">DASHBOARD</h1>
+                    <h1>GROCERY TRACKER</h1>
+                </div>
+
+        <!-- CALENDAR --> 
+    <div class="calendar-container">
+        
+        <p class="headings">Calendar</p>
+        <div class="calendar">
+            
+            <div class="calendar-header">
+                <span class="month-picker" id="month-picker">February</span>
+                <div class="year-picker">
+                    <span class="year-change" id="prev-year">
+                        <pre><</pre>
+                    </span>
+                    <span id="year">2021</span>
+                    <span class="year-change" id="next-year">
+                        <pre>></pre>
+                    </span>
+                </div>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-week-day">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-days"></div>
+            </div>
+ 
+            <div class="month-list"></div>
+        </div>
+    </div>
+        <!-- LATEST STATS --> 
+
+        <div id="stats" class="box">
+            <p class="headings">Latest Stats</p>
+
+            <div class="stat-container">
+
+            <div class="info stat1">
+                Remaining <p class="output-right">10.00<span class="dollar">$</span></p> 
+            </div>
+            <div class="info stat2">
+                Last month's goal <p class="output-right">100.00<span class="dollar">$</span></p>
+            </div>
+            <div class="info stat3">
+                Spent last month 
+                <p class="output-right">84.00<span class="dollar">$</span></p>
+            </div>
+
+            </div>
+
+        </div>
+        
+
+        <!-- BUDGET --> 
+            <div id="monthly-budget" class="box">
+                <p class="headings">Monthly Budget
+                    <i class="fa-regular fa-pen"></i>
+                </p>
+
+                <div class="monthly-budget-container">
+                        <div id="spent">
+                            <span class="dollar">$</span>92.00
+                        </div>
+
+                        <div id="total">/$100.00 SPENT</div>
+                </div>
+
+            </div>
+
+        <!--  WELCOME --> 
+            <div id="welcome" class="box">
+                <p class="headings">Welcome</p>
+
+                <div class="welcome-container">
+                    <p>Hi <span id="person">Erica!</span> Here's a positive quote for the day.
+                    <span class="quote">"Either you control your money or your money controls you." - Robert Kiyasaki </span></p>
+
+                    <!-- <img src="includes/img/avatar.png" alt="avatar"> -->
+                </div>
+            </div>
+            
+
+           
+        <!------------ LISTS -----------------> 
+
+            <div id="lists" class="box">
+
+                <p class="headings lists">Your recent lists</p>
+
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 6, 2022</td>
+                        <td>2.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 4, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 3, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 4, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Dec 29, 2021</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                    <tr>
+                        <td class="date">Jan 3, 2022</td>
+                        <td>30.00 <span class="dollar-expenses">$</span></td>
+                    </tr>
+                </table>
+
+                <div class="pagination-footer">
+
+                </div>
+            
+            </div>
+
+
+    </body>
+
+    <!-- Local JS installs --> 
+
+    <!-- jQuery CDN --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JS --> 
+    <script type="text/javascript" src="includes/js/script.js"></script>
+   
+
+</html>
+
