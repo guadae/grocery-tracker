@@ -1,4 +1,7 @@
-<html>
+
+<!DOCTYPE html> 
+
+<html lang="en">
     <head>
         <title>Grocery Tracker</title>
 
@@ -7,7 +10,7 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
         <!-- local CSS installs --> 
-        <link rel="stylesheet" href="includes/css/style.css" type="text/css">
+        <link rel="stylesheet" href="includes/css/styles.css" type="text/css">
 
         <!-- icons --> 
         <script src="https://kit.fontawesome.com/cdf37576b9.js" crossorigin="anonymous"></script>
@@ -24,13 +27,12 @@
 
             <nav>
 
-                <button type="button" class="btn-hamburger" data-action="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+
                 <ul class="links">                  
                     <li><button><a href="#">
                         <i class="fa-solid fa-user fa-2x"></i>
@@ -48,6 +50,8 @@
                 </ul>
             </nav>
 
+            <h1 id="nav-head">Dashboard</h1>
+
     </div>
 
     
@@ -55,14 +59,15 @@
         <!------- DASHBOARD -------->
         <div class="dashboard-container">
 
-        <!-- HEADER --> 
-        <div class="header">
-            <h1 class="page">DASHBOARD</h1>
-            <h1>GROCERY TRACKER</h1>
-        </div>
+                            <!-- HEADER --> 
+                <div class="header">
+                    <h1 class="page">DASHBOARD</h1>
+                    <h1>GROCERY TRACKER</h1>
+                </div>
 
         <!-- CALENDAR --> 
     <div class="calendar-container">
+        
         <p class="headings">Calendar</p>
         <div class="calendar">
             
@@ -180,14 +185,6 @@
                     </tr>
                     <tr>
                         <td class="date">Jan 3, 2022</td>
-                        <td>30.00 <span class="dollar-expenses">$</span></td>
-                    </tr>
-                    <tr>
-                        <td class="date">Jan 4, 2022</td>
-                        <td>30.00 <span class="dollar-expenses">$</span></td>
-                    </tr>
-                    <tr>
-                        <td class="date">Dec 29, 2021</td>
                         <td>30.00 <span class="dollar-expenses">$</span></td>
                     </tr>
                 </table>

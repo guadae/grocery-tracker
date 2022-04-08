@@ -1,15 +1,21 @@
 
+/* COLORS */ 
+$light-green:#65D292; 
+$green: #489668;
+$dark-green: #186B3A; 
+
+
 /*------------------- DASHBOARD ---------------------*/ 
 
 * {
     margin: 0; 
     padding: 0; 
-    height: fit-content; 
-    overflow: hidden;
-    // outline: none; 
+    // overflow: hidden; 
+    box-sizing: border-box;
+    // overflow: hidden;
 }
 body {
-    // margin: 0; 
+    margin: 0; 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -28,28 +34,27 @@ body {
     grid-area: header; 
     display: flex; 
     justify-content: space-between;
-    padding: 20px 0 20px 0;  
+    align-self: center;
+    // padding: 20px 0 20px 0;  
 }
 
 
 /* DASHBOARD CONTAINER */ 
 
-.dashboard-container{
-    display: grid; 
-    // height: 95vh;  
-    min-height: 100%; 
+.dashboard-container {
+    display:grid; 
+    height: 80vh;  
+    // min-height: 100%; 
     gap: 55px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: autofill;
-    grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.25fr; 
+    grid-template-rows: 70px 1fr 1fr 1fr; 
     grid-template-areas: 
     "header header header"
     "calendar monthly-budget tips"
-    "calendar lists lists"
     "stats lists lists"
     "stats lists lists"; 
 
-    margin: 0px 40px 0px 105px;
+    margin: 0px 40px 55px 105px;
 }
 
 
@@ -101,246 +106,22 @@ a {
     // grid-area: sidebar; 
 }
 
+.burger, h1#nav-head {
+    display: none; 
+    visibility: none;
+}
+
+.burger div {
+    width: 25px; 
+    height: 3px; 
+    background-color:white;
+    margin: 5px; 
+}
+
 button {
     background-color: transparent;
     border: none;
 }
-
-/* ------------------- RESPONSIVE DESIGN ------------------*/ 
-
-@media screen and (max-width: 992px) {
-    .dashboard-container{
-        display: grid; 
-        height: 95vh;  
-        // min-height: 100%; 
-        gap: 55px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: autofill;
-        grid-template-rows: 70px 0.25fr 0.25fr 0.25fr 0.50fr; 
-        grid-template-areas: 
-        "header header"
-        "monthly-budget stats"
-        "tips stats"
-        "calendar lists"
-        "calendar lists";
-    
-        margin: 0px 40px 0px 105px;
-    }
-
-    * {
-        margin: 0; 
-        padding: 0; 
-        // height: fit-content; 
-        overflow: visible;
-        // outline: none; 
-    }
-}
-
-@media screen and (max-width:768px) {
-    .dashboard-container{
-        display: grid; 
-        height: 100vh;
-        gap: 55px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-        grid-template-areas: 
-        "header"
-        "monthly-budget"
-        "stats"
-        "tips"
-        "lists"
-        "calendar";
-    
-        margin: 0; 
-        padding: 0 10px; 
-    }
-
-    * {
-        overflow: visible;
-    }
-
-    * html body {
-        overflow: visible;
-        font-size: 16px; 
-    }
-
-
-    .navbar {
-        position: static;
-        height: 140px;
-        width: 100%; 
-        display: flex; 
-        justify-content: center;
-        align-items: flex-start;
-        color: white; 
-        font-size: 16px; 
-        margin: auto; 
-    }
-
-    // .header {
-    //     display: flex; 
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     background-color: $green;
-    // } 
-
-    info .stat1 .stat2 .stat3 {
-        border-radius: 0px;
-    }
-
-    .calendar {
-        grid-area: calendar;
-        display: grid;
-        // height: 100%;
-        // width: 100%;
-        height: fit-content;
-        width: fit-content; 
-        // border-radius: 30px;
-        // padding: 20px;
-        position: relative;
-        overflow: hidden;
-        transform: scale(1.5);
-        padding: 10px; 
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .dashboard-container{
-        display: grid; 
-        height: 100vh;
-        gap: 55px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-        grid-template-areas: 
-        "header"
-        "monthly-budget"
-        "stats"
-        "tips"
-        "lists"
-        "calendar";
-        margin: 0; 
-        padding: 0 10px; 
-    }
-
-    * html body {
-        overflow: visible;
-        font-size: 16px; 
-    }
-
-
-    .navbar, ul {
-        position: relative;
-        background: $green; 
-        height: 140px;
-        width: 100%; 
-        display: flex; 
-        justify-content: center;
-        align-items: flex-start;
-        color: white; 
-        font-size: 16px; 
-        margin: auto; 
-    }
-
-    .header {
-        display: flex; 
-        justify-content: space-between;
-        align-items: center;
-    } 
-
-    .header h1 {
-        display: inline-block;
-    }
-
-    info .stat1 .stat2 .stat3 {
-        border-radius: 0px;
-    }
-
-    .calendar {
-        grid-area: calendar;
-        display: grid;
-        // height: 100%;
-        // width: 100%;
-        height: fit-content;
-        width: fit-content; 
-        // border-radius: 30px;
-        // padding: 20px;
-        position: relative;
-        overflow: hidden;
-        transform: scale(1.5);
-        padding: 10px; 
-    }
-}
-
-@media screen and (max-width: 375px) {
-    .dashboard-container{
-        display: grid; 
-        height: 100vh;
-        width: 100vh;
-        gap: 55px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-        grid-template-areas: 
-        "header"
-        "monthly-budget"
-        "stats"
-        "tips"
-        "lists"
-        "calendar";
-        margin: 0; 
-        padding: 0 10px; 
-    }
-
-    * html body {
-        overflow: visible;
-        font-size: 16px; 
-    }
-
-
-    .navbar, ul {
-        position: relative;
-        background: $green; 
-        height: 70px;
-        width: 100%; 
-        display: flex; 
-        justify-content: center;
-        align-items: flex-start;
-        color: white; 
-        font-size: 16px; 
-        margin: auto; 
-    }
-
-    .header {
-        display: flex; 
-        justify-content: space-between;
-        align-items: center;
-    } 
-
-    .header h1 {
-        display: inline-block;
-    }
-
-    info .stat1 .stat2 .stat3 {
-        border-radius: 0px;
-    }
-
-    .calendar {
-        grid-area: calendar;
-        display: grid;
-        // height: 100%;
-        // width: 100%;
-        height: fit-content;
-        width: fit-content; 
-        // border-radius: 30px;
-        // padding: 20px;
-        position: relative;
-        overflow: hidden;
-        transform: scale(1.5);
-        padding: 10px; 
-    }
-}
-
-
-
 
 
 
@@ -366,13 +147,14 @@ button {
 .calendar {
     grid-area: calendar;
     display: grid;
+    justify-self: center; 
     // height: 100%;
     // width: 100%;
     height: fit-content;
     width: fit-content; 
     // border-radius: 30px;
     // padding: 20px;
-    position: relative;
+    // position: relative;
     overflow: hidden;
     transform: scale(1);
     padding: 10px; 
@@ -387,9 +169,9 @@ button {
 
 }
 
-// .calendar-body {
-//     padding: 10px;
-// }
+.calendar-body {
+    padding: 10px;
+}
 
 .calendar-week-day {
     height: 50px;
@@ -601,6 +383,7 @@ button {
     -o-border-radius: 11px;
     -webkit-border-radius: 11px;
     border-radius: 11px;
+    align-self: start; 
 }
 
 #welcome .welcome-container {
@@ -628,6 +411,8 @@ button {
     -o-border-radius: 11px;
     -webkit-border-radius: 11px;
     border-radius: 11px;
+    align-self: start; 
+    padding-bottom: 20px; 
 
 }
 
@@ -765,11 +550,11 @@ p.headings {
     // border: solid 1px #f5f5f5; 
     grid-area: lists; 
     box-sizing: border-box;
-    // -moz-border-radius: 11px;
-    // -ms-border-radius: 11px;
-    // -o-border-radius: 11px;
-    // -webkit-border-radius: 11px;
-    // border-radius: 11px;
+    align-self: center; 
+    grid-column: 2 / 4; 
+    grid-row: 2 / 5; 
+    z-index: 10; 
+    margin-top: 350px; 
 
 }
 
@@ -804,3 +589,122 @@ p.headings {
     color: $green;
 }
 
+/* ------------------- RESPONSIVE DESIGN ------------------*/ 
+
+@media screen and (max-width: 1024px) {
+    .dashboard-container {
+        display:grid; 
+        height: 80vh;  
+        gap: 55px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 70px 1fr 1fr 1fr; 
+        grid-template-areas: 
+        "header header header"
+        "calendar monthly-budget tips"
+        "stats lists lists"
+        "stats lists lists"; 
+    
+        margin: 0px 40px 55px 105px;
+    }
+
+    #lists{
+        // border: solid 1px #f5f5f5; 
+        grid-area: lists; 
+        box-sizing: border-box;
+        align-self: center; 
+        grid-column: 2 / 4; 
+        grid-row: 2 / 5; 
+        z-index: 10; 
+        margin-top: 350px; 
+    }
+}
+
+@media screen and (max-width: 992px) and (min-width: 320px){
+
+    .dashboard-container{
+        overflow-x: hidden;
+        display: grid; 
+        height: 100vh;
+        gap: 75px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-areas: 
+        "header"
+        "monthly-budget"
+        "stats"
+        "tips"
+        "lists";
+        // "calendar";
+    
+        margin: 0; 
+        padding: 80px 35px 0 35px; 
+    }
+
+    .burger, h1#nav-head {
+        display: block; 
+        visibility: visible; 
+        padding-top: 15px; 
+        cursor: pointer;
+    }
+
+    h1#nav-head {
+        font-size: 24px;
+    }
+
+    .navbar {
+            position: fixed;
+            height: 70px;
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between;
+            color: white; 
+            font-size: 16px;
+            padding: 0px 40% 0 35px; 
+            z-index: 10;  
+    }
+
+    .navbar ul {
+        display: none; 
+    }
+
+    .header {
+        display: none; 
+    }
+
+    p.headings {
+        position: relative; 
+        margin-top: -50px;
+
+    }
+
+    info .stat1 .stat2 .stat3 {
+        border-radius: 0px;
+    }
+
+    #monthly-budget div {
+        font-size: 24px; 
+        // padding: 10px;
+    }
+    
+    #monthly-budget .monthly-budget-container {
+        font-size: 12px;
+        // margin: auto; 
+        // display: flex; 
+        // justify-content: center;
+        color: grey;
+    
+    }
+    #lists{
+
+        grid-area: lists; 
+        box-sizing: border-box;
+        // align-self: center; 
+        margin: 0; 
+    }
+
+    .calendar {
+        display: none; 
+        visibility: none;
+    }
+    
+}
