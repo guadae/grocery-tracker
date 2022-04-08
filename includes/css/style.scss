@@ -142,8 +142,7 @@ button {
         height: 100vh;
         gap: 55px;
         grid-template-columns: 1fr;
-        // grid-template-rows: autofill;
-        grid-template-rows: 70px 1fr 1fr 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
         grid-template-areas: 
         "header"
         "monthly-budget"
@@ -168,8 +167,7 @@ button {
 
     .navbar {
         position: static;
-        background-color: $green; 
-        height: 400px;
+        height: 140px;
         width: 100%; 
         display: flex; 
         justify-content: center;
@@ -179,12 +177,12 @@ button {
         margin: auto; 
     }
 
-    .header {
-        display: flex; 
-        justify-content: space-between;
-        align-items: center;
-        background-color: $green;
-    } 
+    // .header {
+    //     display: flex; 
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     background-color: $green;
+    // } 
 
     info .stat1 .stat2 .stat3 {
         border-radius: 0px;
@@ -233,7 +231,7 @@ button {
     .navbar, ul {
         position: relative;
         background: $green; 
-        height: 70px;
+        height: 140px;
         width: 100%; 
         display: flex; 
         justify-content: center;
