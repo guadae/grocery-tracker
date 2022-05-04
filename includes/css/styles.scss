@@ -8,14 +8,13 @@ $dark-green: #186B3A;
 /*------------------- DASHBOARD ---------------------*/ 
 
 * {
-    margin: 0; 
-    padding: 0; 
-    // overflow: hidden; 
+    margin: 0px; 
+    padding: 0px; 
     box-sizing: border-box;
-    // overflow: hidden;
 }
 body {
-    margin: 0; 
+    // margin: 0; 
+    position: relative; 
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -57,6 +56,26 @@ body {
     margin: 0px 40px 55px 105px;
 }
 
+/* ACCOUNT CONTAINER */ 
+.account-container {
+    margin: 0px 40px 55px 105px; 
+    overflow: auto;
+
+    .calendar, p.headings {
+        display: none;
+        visibility: none;
+    }
+
+    .header {
+        height: 70px;
+        align-items: center;
+    }
+
+}
+
+
+
+
 
 /* SIDEBAR */ 
 
@@ -68,12 +87,11 @@ ul {
 }
 
 .links li {
-    padding: 20px 0;  
-    font-size: 18px;
+    font-size: 24px;
 }
 
-i {
-    padding:  10px 0; 
+.navbar i {
+    padding:  30px 0; 
 }
 
 i.fa-solid {
@@ -123,6 +141,10 @@ button {
     border: none;
 }
 
+p.nav-captions {
+    display: none;
+    visibility: hidden;
+}
 
 
 /*------------ CONTENTS ----------------*/ 
@@ -284,7 +306,6 @@ button {
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
-    background-color: white; 
 }
 
 .month-picker:hover {
@@ -541,16 +562,17 @@ p.headings {
     justify-content: space-between;
 }
 
-
-
-
+#monthly-budget p.headings i.fa-solid.fa-pen-to-square {
+    padding-left: 5px; 
+    color: $green;
+}
   /* EXPENSES */ 
 
 #lists{
     // border: solid 1px #f5f5f5; 
     grid-area: lists; 
     box-sizing: border-box;
-    align-self: center; 
+    // align-self: center; 
     grid-column: 2 / 4; 
     grid-row: 2 / 5; 
     z-index: 10; 
@@ -576,7 +598,7 @@ p.headings {
 
 #lists table th, 
 #lists table td {
-    padding: 0 0 15px 5px;
+    padding: 0 10px 10px 5px;
 }
 
 .dollar-expenses {
@@ -585,9 +607,202 @@ p.headings {
 }
 
 #lists table td.date {
-    // color: rgb(179, 179, 179); 
+    margin-right: 60%;
+    width: 100% 
+}
+
+td.move-right {
+    display: inline;
+}
+
+td.list-total {
+    margin-right: 1px;
+    display: inherit;
+}
+
+td.inline {
+    display: flex;
+    gap: 10px;
     color: $green;
 }
+
+table .fa-solid {
+    color: $green;
+}
+
+.list-box {
+    display: flex;
+    justify-content: space-between;
+}
+/* -- MODAL --*/ 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+.modal-content {
+    position: fixed; 
+    padding: 40px;
+    z-index: 10; 
+    left: 50%; 
+    top: 50%; 
+    width: 40%; 
+    margin-right: -50%; 
+    transform: translate(-50%, -50%);
+    height: 70%; 
+    overflow: auto; 
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 11px;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    animation-name: animatetop; 
+    animation-duration: 0.4s; 
+}
+
+.close {
+    float: right;
+    top: 0;
+    font-size: 30px;
+}
+
+.close:hover, .close:focus {
+    color: black; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
+
+.modal-content h1 {
+    font-size: 24px; 
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 50%; opacity: 1}
+  }
+
+
+/* -------- LISTS --------*/ 
+.to-list {
+    list-style: none; 
+    margin-bottom: 20px; 
+}
+
+.todo-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .todo-item span {
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .done span {
+    text-decoration: line-through;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  .tick {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .tick::before {
+    content: '✓';
+    font-size: 20px;
+    display: none;
+  }
+  
+  .done .tick::before {
+    display: inline;
+  }
+
+  .delete-todo{
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='53.7' height='53.7' viewBox='0 0 53.7 53.7'><path opacity='.6' fill='%23666E6E' d='M35.6 34.4L28 26.8l7.6-7.6c.2-.2.2-.5 0-.7l-.5-.5c-.2-.2-.5-.2-.7 0l-7.6 7.6-7.5-7.6c-.2-.2-.5-.2-.7 0l-.6.6c-.2.2-.2.5 0 .7l7.6 7.6-7.6 7.5c-.2.2-.2.5 0 .7l.5.5c.2.2.5.2.7 0l7.6-7.6 7.6 7.6c.2.2.5.2.7 0l.5-.5c.2-.2.2-.5 0-.7z'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+  }
+
+
+  /*------------------- ACCOUNT CONTAINER ------------------------*/ 
+
+.form-container form {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 12%; 
+}
+.form-container input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 47px;
+    border: solid 1px black;
+    border-radius: 11px;
+    padding: 12px 20px; 
+}
+
+.form-container label {
+    font-weight: bold; 
+    // text-transform: uppercase; 
+}
+input[type=submit] {
+    width: 100%; 
+    border: none; 
+    background-color: $green;
+    color: white; 
+    cursor: pointer;
+    text-transform: uppercase; 
+}
+
+.form-container h2 {
+    color: $green;
+}
+
+// form.account label {
+//     display: block;
+// }
 
 /* ------------------- RESPONSIVE DESIGN ------------------*/ 
 
@@ -611,18 +826,50 @@ p.headings {
         // border: solid 1px #f5f5f5; 
         grid-area: lists; 
         box-sizing: border-box;
-        align-self: center; 
+        // align-self: center; 
         grid-column: 2 / 4; 
         grid-row: 2 / 5; 
         z-index: 10; 
         margin-top: 350px; 
     }
+    #lists table tr {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        justify-content: space-between;
+        margin-top: 10px;
+        border-bottom: solid 1px #d8d8d8;
+    }
+
+    #lists table th {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #lists table td.date {
+        margin-right: 30%;
+        width: 100% 
+    }
+    
+    td.list-total {
+        margin-left: 30%;
+    }
+    
+    td.inline {
+        display: flex;
+        gap: 10px;
+    }
+
+    /*--------- ACCOUNT CONTAINER ----------*/ 
+    .account-container {
+        overflow: auto;
+    }
+
 }
 
 @media screen and (max-width: 992px) and (min-width: 320px){
 
+    //container 
     .dashboard-container{
-        overflow-x: hidden;
         display: grid; 
         height: 100vh;
         gap: 75px;
@@ -639,41 +886,129 @@ p.headings {
         margin: 0; 
         padding: 80px 35px 0 35px; 
     }
-
+    // sidenav 
     .burger, h1#nav-head {
         display: block; 
         visibility: visible; 
         padding-top: 15px; 
         cursor: pointer;
+        z-index: 1;
     }
 
     h1#nav-head {
         font-size: 24px;
     }
 
-    .navbar {
-            position: fixed;
-            height: 70px;
-            width: 100%; 
-            display: flex; 
-            justify-content: space-between;
-            color: white; 
-            font-size: 16px;
-            padding: 0px 40% 0 35px; 
-            z-index: 10;  
-    }
-
-    .navbar ul {
-        display: none; 
-    }
-
     .header {
-        display: none; 
+        background-color: $green;
+        position: fixed;
+        width: 100%;
+        height: 10vh;
+        padding: 30px; 
+        top: 0; 
+        left:0; 
+        align-items: center;
+        justify-content: space-between;
+        color: white;
     }
 
+    .header h1.page {
+        color: white;
+    }
+
+    .header h1.main {
+        display: none;
+        visibility: hidden;
+    }
+
+    .burger, h1.page {
+        padding: 0 40px 0 0;
+    }
+
+    .navbar {
+        display: none;
+        background: $green; 
+        height: 100%;
+        width: 40%; 
+        top: 7vh; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        color: white; 
+        font-size: 24px; 
+        position: fixed; 
+        margin: 0; 
+        left: -40%;
+        transform: translateX(0%);
+        transition: transform 0.5s ease-in; 
+    }
+
+
+    // body {
+    //     overflow-x: hidden;
+    // }
+
+    ul.nav-links {
+        display: none ;
+        background-color: $green;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: center;
+        // gap: 30px;
+        height: 100vh;
+        top: 0;
+        // left: -20px;
+        padding: 10% 15%; 
+        // margin-right: 30px;
+        display: flex; 
+        font-size: 18px;
+
+    }
+
+    .nav-active {
+        transform: translateX(100%);
+        display: block;
+        visibility: visible;
+        // transition: transform 0.5s ease-in-out;
+        
+    }
+
+    
+    ul.nav-links a {   
+        color: white;
+        text-decoration: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 20px; //puts gap between i and p.nav-captions
+        // padding: 45px 0 0 45px;
+        // transition: 0.5s;
+  
+        
+    }
+
+    #lists {
+        z-index: -4;
+        width: 100%; 
+        margin: auto;
+    }
+
+    ul.links i {
+        color: white;
+    }
+
+    p.nav-captions {
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(255, 255, 255);
+        display: block;
+        visibility: visible;
+    }
+
+// body of dashboard container 
     p.headings {
         position: relative; 
         margin-top: -50px;
+        z-index: -1;
 
     }
 
@@ -699,12 +1034,104 @@ p.headings {
         grid-area: lists; 
         box-sizing: border-box;
         // align-self: center; 
-        margin: 0; 
+        margin: auto; 
+    }
+
+    td.list-total {
+        margin-left: 60%;
     }
 
     .calendar {
         display: none; 
         visibility: none;
     }
+
+    /* -- MODAL --*/ 
+.modal {
+    // display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  }
+
+.modal-content {
+    position: fixed; 
+    padding: 40px;
+    z-index: 10; 
+    left: 50%; 
+    top: 50%; 
+    width: 100%; 
+    margin-right: -50%; 
+    transform: translate(-50%, -50%);
+    height: 100%; 
+    overflow: auto; 
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 11px;
+    -moz-border-radius: 11px;
+    -ms-border-radius: 11px;
+    -o-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    animation-name: animatetop; 
+    animation-duration: 0.4s; 
+
+}
+
+@keyframes animatetop {
+    from {top: 20px;}
+    to {top: 50%;}
     
 }
+
+/*------- ACCOUNT CONTAINER ---------*/ 
+.form-container form {
+    margin-top: 12vh;
+    // width: 70%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-content: center;
+    justify-content: center;
+    padding: 0 10% 0 2%; 
+}
+
+}
+
+// @media screen and (max-width: 675px) {
+
+@media screen and (max-width: 475px) {
+
+
+
+    td.list-total {
+        margin-left: 20%;
+    }
+
+    ul.nav-links {
+    padding: 10% 3%; 
+    }
+
+    .form-container form {
+        margin-top: 12vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-content: center;
+        justify-content: center;
+        padding: 0 17% 0 0%; 
+    }
+
+  }
+
+  @media screen and (max-width: 375px) {
+    .navbar {
+        width: 80%; 
+        left: -80%; 
+    }
+  }

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html> 
+
+<html lang="en">
+    <head>
+        <title>Grocery Tracker</title>
+
+				<!-- Required meta tags -->
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+        <!-- local CSS installs --> 
+        <link rel="stylesheet" href="includes/css/styles.css" type="text/css">
+
+        <!-- icons --> 
+        <script src="https://kit.fontawesome.com/cdf37576b9.js" crossorigin="anonymous"></script>
+        
+    </head>
+
+	<body>
+            
+        <!-- NAVBAR --> 
+
+        <div class="navbar">
+
+ 
+                <ul class="nav-links">  
+
+                    <li><a href="account.html">
+                        <i class="fa-solid fa-user fa"></i><p class="nav-captions">Account</p>
+                    </a></li>
+                    <li>
+                    <a href="dashboard.html">
+                        <i class="fa-solid fa-house fa"></i>
+                        <p class="nav-captions">Dashboard</p></a><li>
+                    <li><a href="#" id="myBtn" class="myModal">
+                        <i class="fa-solid fa-list fa" ></i>
+                    <p class="nav-captions">Create New List</p></a></li> 
+                    <li><a href="index.html">
+                        <i class="fa-solid fa-arrow-right-from-bracket fa-1x"></i>
+                    <p class="nav-captions">Logout</p></a></li>
+                </ul>
+
+
+    </div>
+
+    
+
+        <!------- ACCOUNT -------->
+    
+        <div class="account-container">
+
+            <!-- HEADER --> 
+            <div class="header">
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <h1 class="page">ACCOUNT</h1>
+                <h1 class="main">GROCERY TRACKER</h1>
+            </div>
+
+        <!-- FORM CONTAINER --> 
+
+        <div class="form-container">
+
+            <form class="account" action="#">
+                <h2 class="account-info">Current Credentials</h2>
+                <label for="username">Username</label>
+                <input class="username" type="username" placeholder="e.g., Johndoe123" required>
+
+                <label for="email">Email</label>
+                <input class="email" type="email" placeholder="e.g., Johndoe123@email.com" required>
+
+                <h2 class="change-password">Change Your Password</h2>
+                <label for="password">Current Password</label>
+                <input type="password" placeholder="e.g., password123"required>
+
+                <label for="new-password">New Password</label>
+                <input type="password">
+
+                <label for="repeat-password">Re-enter New Password</label>
+                <input type="password">
+
+                <input type="submit" value="Apply Changes"> 
+            </form>
+        </div>
+
+            <!-- CALENDAR --> 
+    <div class="calendar-container">
+        
+        <p class="headings">Calendar</p>
+        <div class="calendar">
+            
+            <div class="calendar-header">
+                <span class="month-picker">February</span>
+                <div class="year-picker">
+                    <span class="year-change" id="prev-year">
+                        <pre><</pre>
+                    </span>
+                    <span id="year">2021</span>
+                    <span class="year-change" id="next-year">
+                        <pre>></pre>
+                    </span>
+                </div>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-week-day">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class="calendar-days"></div>
+            </div>
+ 
+            <div class="month-list"></div>
+        </div>
+    </div>
+
+                <!-- POPUP MODAL --> 
+        
+                <div class="modal" id="myModal">
+                    <div class="modal-content todo-list js-todo-list">
+                        <span class="close">&times;</span>
+                        <h1>New Grocery List</h1>
+                        <span class="date">00/00/00</span>
+                        <ul>
+                        <form action="" class="checklist js-form">
+                            <input autofocus type="text" aria-label="Type something here" placeholder="Like apples or sumn..." class="js-todo-input">
+                        </form>
+                    </ul>
+        
+                    </div>
+        
+             <span id="checklist-icon">&#10003;</span>
+            
+            <span id="delete-icon" class="js-delete-todo">&times;</span>
+        
+                </div>
+        
+        </div>
+
+
+
+    <!-- Local JS installs --> 
+
+    <!-- jQuery CDN --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JS --> 
+    <script type="text/javascript" src="includes/js/script.js"></script>
+   
+</body>
+</html>
+
+
