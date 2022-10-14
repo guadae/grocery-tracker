@@ -4,7 +4,7 @@ This application is a current front-end only design to track groceries. It utili
 
 Here is a gif to show its current version: 
 
-![https://github.com/guadae/grocery-tracker/blob/main/includes/img/grocery-tracker-v1.gif?raw=true]()
+![](https://github.com/guadae/grocery-tracker/blob/main/includes/img/grocery-tracker-v1.gif)
 
 
 This project is useful because with one app you can keep track of how much a user spends on groceries, and also create lists off of it too so that they can go back and view what they have bought or haven't yet bought. 
