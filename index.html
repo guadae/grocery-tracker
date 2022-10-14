@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grocery Tracker</title>
+
+				<!-- Required meta tags -->
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+        <!-- local CSS installs --> 
+        <!-- <link rel="stylesheet" href="includes/css/style.css" type="text/css"> -->
+        <link rel="stylesheet" href="includes/css/login.css" type="text/css">
+        
+    </head>
+
+
+	<body>
+
+    <div class="wrapper"> 
+
+        <!-- LEFT HAND SIDE --> 
+
+        
+        <div class="split left">
+            
+        <!-- navbar --> 
+
+        <div class="navbar"> 
+            <h2 class="header1">GROCERY TRACKER</h1>
+        </div> 
+
+            <div class="centered">
+                <img src="includes/img/grocery-bags-official.png" alt="">
+                
+                <p>Welcome! We provide an easy way to log when you do groceries, and to track how much you spend. </p>
+            </div> 
+        </div> 
+
+        <!-- RIGHT HAND SIDE --> 
+
+        <div class="split right">
+
+            
+            <div class="centered">
+                <h1>Login into your Grocery Tracker Account</h1>
+                <form method="post">
+
+                    <div class="form">
+                    <!-- username --> 
+                    <label for="uname">Username</label> 
+                    <input type="text" placeholder="e.g., 'John Doe'" name="uname" required >
+
+                    <!-- password --> 
+                    <label for="psw">Password</label>
+                    <input type="password" placeholder="e.g., abc123" required > 
+
+                    <!-- button --> 
+                    <button type="submit" class="login-button">Sign in</button> 
+
+                    <!-- create an account --> 
+                    <div class="create-account">
+                        <p>Not a member? <a href="#">Create an account</a>. </p>
+                                            
+                    </div> <!-- form --> 
+
+
+                    </div>
+                </form>
+             </div>
+        </div>
+
+    </div> <!-- wrapper --> 
+    </body>
+
+    <!-- Local JS installs --> 
+    <script type="text/javascript" src="includes/js/script.js"></script>
+
+    <!-- 
+    <script src="bootstrap/js/bootstrap.min.js"></script> 
+
+    Bootstrap JS CDN 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    --> 
+</html>
