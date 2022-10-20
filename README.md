@@ -9,4 +9,6 @@ Here is a gif to show its current version:
 
 This project is useful because with one app you can keep track of how much a user spends on groceries, and also create lists off of it too so that they can go back and view what they have bought or haven't yet bought. 
 
-Feel free to clone this project directly onto your desktop-- that is how the file directories are structured when navigating between HTML files in the project. That way, you can manuever easily when you open up the file on your browser. 
+## When cloning this project
+
+You won't need to download npm or add modules to this project. Happy coding! 
